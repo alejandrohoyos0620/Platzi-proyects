@@ -87,7 +87,7 @@ export class ProductFormComponent {
 
   constructor(private fb: FormBuilder) {}
 
-  onSubmit() {
+  onSubmit(): void{
     alert('Thanks!');
   }
 }

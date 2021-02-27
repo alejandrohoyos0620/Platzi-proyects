@@ -6,8 +6,8 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { Product } from '../../../core/models/product.model';
-import {CartService} from './../../../core/services/cart.service';
+import { Product } from '@core/models/product.model';
+import {CartService} from '@core/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -21,15 +21,15 @@ export class ProductComponent implements OnInit{
   today = new Date();
 
 
-  constructor( 
-    private cartService:CartService
-    ) {
-  }
-  ngOnInit(): void {
-  }
-  addCart(): void {
-    console.log('añadir al carrito');
-    //this.productClicked.emit(this.product.id);
-    this.cartService.addCart(this.product);
-  }
+constructor(
+private cartService: CartService
+) {
+}
+ngOnInit(): void {
+}
+addCart(): void {
+  console.log('añadir al carrito');
+// this.productClicked.emit(this.product.id);
+  this.cartService.addCart(this.product);
+}
 }

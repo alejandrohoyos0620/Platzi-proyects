@@ -20,7 +20,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths":{
+      "@core/*": ["src/app/core/*"],
+      "@material/*": ["src/app/material/*"],
+      "@admin/*": ["src/app/admin/*"],
+      "@auth/*": ["src/app/auth/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@environments/*": ["src/environments/*"]
+    }
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

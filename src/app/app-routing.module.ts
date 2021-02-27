@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 
-import { AdminGuard } from './admin.guard'
+import { AdminGuard } from './admin.guard';
 const routes: Routes = [
   {
     path: '',
@@ -29,12 +29,12 @@ const routes: Routes = [
       {
         path: 'contact',
         loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
-        //component: ContactComponent
+      // component: ContactComponent
       },
       {
         path: 'order',
         loadChildren: () => import('./order/order.module').then(m => m.OrderModule)
-        //component: ContactComponent
+      // component: ContactComponent
       }
     ]
   },

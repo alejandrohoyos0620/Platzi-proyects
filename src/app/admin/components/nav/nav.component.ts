@@ -4,7 +4,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
-import {AuthService} from './../../../core/services/auth.service';
+import {AuthService} from '@core/services/auth.service';
 import { Thumbs } from 'swiper';
 
 @Component({
@@ -26,10 +26,10 @@ export class NavComponent {
     private route: Router
     ) {}
 
-  logout(){
+  logout(): void{
     this.auth.logout().then(() => {
       this.route.navigate(['./home']);
-    })
+    });
   }
 
 }

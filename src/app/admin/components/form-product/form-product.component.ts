@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductsService } from './../../../core/services/products/products.service';
-import { MyValidators } from './../../../utils/validators';
+import { ProductsService } from '@core/services/products/products.service';
+import { MyValidators } from '@utils/validators';
 
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -29,19 +29,19 @@ export class FormProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveProduct(event: Event) {
+  saveProduct(event: Event): void {
     event.preventDefault();
     if (this.form.valid) {
       const product = this.form.value;
       this.productsService.createProduct(product).subscribe((newproduct) => {
         console.log(newproduct);
-        this.router.navigate(['./admin/products'])
+        this.router.navigate(['./admin/products']);
       });
     }
     console.log(this.form.value);
   }
 
-  uploadFile(event) {
+  uploadFile(event): void {
     const file = event.target.files[0];
     const name = 'image.png';
     const fileRef = this.Storage.ref(name);
@@ -59,7 +59,7 @@ export class FormProductComponent implements OnInit {
       ).subscribe();
   }
 
-  private buildForm() {
+  private buildForm(): void {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       title: ['', [Validators.required]],
@@ -69,9 +69,7 @@ export class FormProductComponent implements OnInit {
     });
   }
 
-  
-
-  get priceField() {
+  get priceField(): any {
     return this.form.get('price');
   }
 

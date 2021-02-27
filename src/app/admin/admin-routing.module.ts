@@ -9,7 +9,6 @@ import {ProductListComponent} from './components/product-list/product-list.compo
 import {FormProductComponent} from './components/form-product/form-product.component';
 import {ProductEditComponent} from './components/product-edit/product-edit.component';
 const routes: Routes = [
- 
   {
     path: '',
     component: NavComponent,
@@ -38,7 +37,6 @@ const routes: Routes = [
         path: 'products/edit/:id',
         component: ProductEditComponent
       },
-      
     ]
   }
 ];

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from './../../../core/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,28 +20,33 @@ export class LoginComponent implements OnInit {
     this.buildForm();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  login(event: Event) {
-    event.preventDefault();
-    if(this.form.valid){
-      const value = this.form.value;
-      this.authService.login(value.email, value.password).
-      then(() => {
-        this.router.navigate(['/admin']);
-      })
-      .catch(() => {
-        alert('No es valido');
-      })
-    }
+  login(event: Event): void {
+  event.preventDefault();
+  if (this.form.valid){
+    const value = this.form.value;
+    this.authService.login(value.email, value.password).
+    then(() => {
+      this.router.navigate(['/admin']);
+    })
+    .catch(() => {
+      alert('No es valido');
+    });
+  }
+  }
+  loginApi(){
+    this.authService.loginRestApi('alejandro@alejo.com', '123456')
+    .subscribe(data => {
+      console.log(data);
+    });
   }
 
-  private buildForm() {
+  private buildForm(): void {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
-
 }
